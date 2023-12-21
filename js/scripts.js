@@ -7,3 +7,4 @@ document.write(favouriteFood);
 //show my least-liked food in the index too
 let leastLikedfood = 'Apple';
 document.write(leastLikedfood);
+
