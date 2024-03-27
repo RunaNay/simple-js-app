@@ -18,14 +18,39 @@ var pokemonRepository = (function() {
         },
         add: function(item) {
             pokemonList.push(item);
+        },
+        addListItem: function(pokemon) {
+            // Create a new list item element
+            var listItem = document.createElement('li');
+
+            // Create a button element with the Pokémon's name
+            var button = document.createElement('button');
+            button.innerText = pokemon.name;
+
+            // Add a class to the button
+            button.classList.add('pokemon-button');
+
+            // Append the button to the list item
+            listItem.appendChild(button);
+
+            // Append the list item to the unordered list
+            var pokemonListElement = document.querySelector('.pokemon-list');
+            pokemonListElement.appendChild(listItem);
+
+            // Add event listener to the button
+            button.addEventListener('click', function() {
+                showDetails(pokemon);
+            });
         }
     };
 })();
 
+function showDetails(pokemon) {
+    console.log(pokemon);
+}
+
 pokemonRepository.getAll().forEach(function(pokemon) {
-    if (pokemon.height > 4) {
-        document.write('<p>' + pokemon.name + ' (height:' + pokemon.height + ') Wow, das ist riesig!</p>');
-    } else {
-        document.write('<p>' + pokemon.name + ' (height:' + pokemon.height + ')</p>');
-    }
+    // Call the addListItem function and pass the Pokemon object
+    pokemonRepository.addListItem(pokemon);
 });
+
