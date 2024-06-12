@@ -1,6 +1,11 @@
 (function() {
     let modalContainer = document.querySelector('#modal-container');
-  
+
+    const modal = document.querySelector('#modal');
+
+
+
+   
     function showModal(title, text, imgSrc) {
       modalContainer.innerHTML = '';
   
@@ -20,6 +25,7 @@
   
       let imageElement = document.createElement('img');
       imageElement.src = imgSrc;
+    
   
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
@@ -70,6 +76,7 @@
         let listItem = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
+        button.classList.add('pokemon-button'); // Klasse hinzufügen
         button.addEventListener('click', () => {
           showDetails(pokemon);
         });
