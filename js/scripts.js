@@ -11,6 +11,8 @@ let pokemonRepository = (function () {
     return pokemons;
   }
 
+
+
   function showDetails(pokemon) {
     console.log("Showing details for: " + pokemon.name); // Debugging
     loadDetails(pokemon).then(() => {
